@@ -1,30 +1,12 @@
 'use client'
 
-import addData from '@/lib/firebase/addData';
 import React, { useEffect, useState } from 'react';
 import { User, onAuthStateChanged } from 'firebase/auth';
 import { auth, firestore } from '@/lib/firebase/init';
 import { useAuthContext } from '@/context/AuthContext';
 import { useRouter } from 'next/navigation';
-import { collection, getDocs } from 'firebase/firestore';
-import Image from 'next/image';
-
-interface Profile {
-  id: string;
-  name: string;
-  bio: string;
-  email: string;
-}
-
-interface Image {
-  id: string;
-  url: string;
-}
-
 const AdminPage = () => {
   const [userProfile, setUserProfile] = useState<User | null>(null);
-  const [images, setImages] = useState<Image[]>([]);;
-  const [profiles, setProfiles] = useState<Record<string, Profile>>({});
 
   const { user } = useAuthContext()
   const router = useRouter()
@@ -32,12 +14,6 @@ const AdminPage = () => {
   React.useEffect(() => {
       if (user == null) router.push("/")
   }, [user])
-
-  useEffect(() => {
-    fetch('/api/profiles')
-      .then((res) => res.json())
-      .then((data) => setProfiles(data));
-  }, []);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -54,18 +30,6 @@ const AdminPage = () => {
 
   if (!userProfile) {
     return <div>Please log in to see your profile.</div>;
-  }
-
-  const handleForm = async () => {
-    const data = {
-      name: 'John snow',
-      house: 'Stark'
-    }
-    const { result, error } = await addData('users', userProfile.uid, data)
-
-    if (error) {
-      return console.log(error)
-    }
   }
 
   return (
