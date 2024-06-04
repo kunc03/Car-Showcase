@@ -82,8 +82,6 @@ const AdminPage = () => {
             <strong>Email:</strong> {userProfile.email}
           </p>
         </div>
-        {/* <AddProfileImage />
-        <UploadedImage /> */}
       </div>
     </div>
   );
