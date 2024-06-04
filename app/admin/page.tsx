@@ -4,8 +4,6 @@ import addData from '@/lib/firebase/addData';
 import React, { useEffect, useState } from 'react';
 import { User, onAuthStateChanged } from 'firebase/auth';
 import { auth, firestore } from '@/lib/firebase/init';
-import Link from 'next/link';
-import { AddProfileImage, UploadedImage } from '@/components';
 import { useAuthContext } from '@/context/AuthContext';
 import { useRouter } from 'next/navigation';
 import { collection, getDocs } from 'firebase/firestore';
