@@ -1,10 +1,25 @@
-import React from 'react';
+'use client'
 
-import CustomButton from './CustomButton';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
+import { useAuthContext } from '@/context/AuthContext';
+import { User, onAuthStateChanged } from 'firebase/auth';
+import { auth } from '@/lib/firebase/init';
 
 const Navbar = () => {
+  const [userProfile, setUserProfile] = useState<User | null>(null);
+
+  // const { user } = useAuthContext();
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUserProfile(user);
+      } else {
+        setUserProfile(null);
+      }
+    });
+    return () => unsubscribe();
+  }, []);
 
   return (
     <header className="w-full absolute z-10">
@@ -15,7 +30,11 @@ const Navbar = () => {
         </Link>
 
         {/*<CustomButton onClick title="Sign In" btnType="button" containerStyles="text-primary-blue rounded-full bg-white min-w-[130px]" />*/}
-        <Link href='/signin' className='custom-btn text-primary-blue rounded-full hover:bg-white bg-white/80 min-w-[130px]'>Sign In</Link>
+        {
+          userProfile
+            ? <Link href='/signin' className='custom-btn text-primary-blue rounded-full hover:bg-white bg-white/80 min-w-[130px]'>Sign Out</Link>
+            : <Link href='/signin' className='custom-btn text-primary-blue rounded-full hover:bg-white bg-white/80 min-w-[130px]'>Sign In</Link>
+        }
       </nav>
     </header>
   );

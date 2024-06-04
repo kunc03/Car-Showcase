@@ -23,7 +23,7 @@ const RegisterPage = () => {
 
     // else successful
     console.log(result);
-    return router.push('/signin');
+    return router.push('/admin');
   };
 
   // const handleSubmit = async (event: React.FormEvent) => {
@@ -53,7 +53,7 @@ const RegisterPage = () => {
               onChange={(e) => setName(e.target.value)}
               placeholder="Kunc"
               required
-              className="p-2 bg-gray-100 border-gray-300 border-[1px] w-full focus:outline-none focus:border-blue-600 focus:shadow-sm focus:shadow-blue-600"
+              className="p-2 bg-gray-100 border-gray-300 border-[1px] w-full focus:outline-none focus:border-red-600 focus:shadow-sm focus:shadow-red-600"
             />
           </div>
 
@@ -67,7 +67,7 @@ const RegisterPage = () => {
               onChange={(e) => setEmail(e.target.value)}
               placeholder="kunc@bag.com"
               required
-              className="p-2 bg-gray-100 border-gray-300 border-[1px] w-full focus:outline-none focus:border-blue-600 focus:shadow-sm focus:shadow-blue-600"
+              className="p-2 bg-gray-100 border-gray-300 border-[1px] w-full focus:outline-none focus:border-red-600 focus:shadow-sm focus:shadow-red-600"
             />
           </div>
 
@@ -82,13 +82,13 @@ const RegisterPage = () => {
               placeholder="******"
               minLength={6}
               required
-              className="p-2 bg-gray-100 border-gray-300 border-[1px] w-full focus:outline-none focus:border-blue-600 focus:shadow-sm focus:shadow-blue-600"
+              className="p-2 bg-gray-100 border-gray-300 border-[1px] w-full focus:outline-none focus:border-red-600 focus:shadow-sm focus:shadow-red-600"
             />
           </div>
 
           <button
             type="submit"
-            className="flex bg-blue-600 font-semibold text-gray-50 w-full p-2 items-center justify-center hover:ring-[1px] hover:ring-blue-600 hover:bg-white hover:text-blue-600 hover:shadow-sm hover:shadow-blue-600 duration-200 transition-all"
+            className="flex bg-red-600 font-semibold text-gray-50 w-full p-2 items-center justify-center hover:ring-[1px] hover:ring-red-600 hover:bg-white hover:text-red-600 hover:shadow-sm hover:shadow-red-600 duration-200 transition-all"
           >
             Register
           </button>
@@ -96,7 +96,7 @@ const RegisterPage = () => {
         </form>
         <p className="text-xs text-start w-full pt-1">
           Have an account?{' '}
-          <Link href={'/signin'} className="text-blue-500 hover:text-blue-700 font-bold">
+          <Link href={'/signin'} className="text-red-500 hover:text-red-700 font-bold">
             SignIn Here
           </Link>
         </p>
@@ -104,7 +104,7 @@ const RegisterPage = () => {
         <div>
           <button
             type="submit"
-            className="flex bg-blue-600 font-semibold text-gray-50 w-full p-2 items-center justify-center hover:ring-[1px] hover:ring-blue-600 hover:bg-white hover:text-blue-600 hover:shadow-sm hover:shadow-blue-600 duration-200 transition-all"
+            className="flex bg-red-600 font-semibold text-gray-50 w-full p-2 items-center justify-center hover:ring-[1px] hover:ring-red-600 hover:bg-white hover:text-red-600 hover:shadow-sm hover:shadow-red-600 duration-200 transition-all"
           >
             Login with Google
           </button>

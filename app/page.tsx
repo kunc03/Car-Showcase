@@ -6,6 +6,7 @@ import SearchBar from '@/components/SearchBar';
 import { fuels, yearsOfProduction } from '@/constants';
 import { fetchCars } from '@/utils';
 import Image from 'next/image';
+import React from 'react';
 import { useEffect, useState } from 'react';
 
 export default function Home() {
@@ -88,7 +89,7 @@ export default function Home() {
         ) : (
           <div className="home__error-container">
             <h2 className="text-black text-xl font-bold">Oopss, no results</h2>
-            <p>{allCars?.message}</p>
+            <p>{allCars.message}</p>
           </div>
         )}
       </div>

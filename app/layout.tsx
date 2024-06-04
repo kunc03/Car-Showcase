@@ -1,3 +1,4 @@
+import { AuthContextProvider } from '@/context/AuthContext';
 import './globals.css';
 
 import { Footer, Navbar } from '@/components';
@@ -8,12 +9,16 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  // const {user} = useAuthContext()
+
   return (
     <html lang="en">
       <body className="relative">
-        <Navbar />
-        {children}
-        <Footer />
+        <AuthContextProvider>
+          <Navbar />
+          {children}
+          <Footer />
+        </AuthContextProvider>
       </body>
     </html>
   );

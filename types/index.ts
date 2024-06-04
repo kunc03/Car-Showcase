@@ -46,10 +46,12 @@ export interface OptionsProps {
 
 export interface CustomFilterProps {
   title: string;
+  setFilter: any;
   options: OptionsProps[];
 }
 
 export interface ShowMoreProps {
   pageNumber: number;
+  setLimit: any;
   isNext: boolean;
 }
