@@ -8,7 +8,5 @@ import SearchManufacturer from './SearchManufacturer';
 import CarCard from './CarCard';
 import CarDetails from './CarDetails';
 import ShowMore from './ShowMore';
-import AddProfileImage from './AddProfileImage';
-import UploadedImage from './UploadedImage';
 
-export { Hero, CustomButton, Navbar, Footer, CustomFilter, SearchBar, SearchManufacturer, CarCard, CarDetails, ShowMore, AddProfileImage, UploadedImage };
+export { Hero, CustomButton, Navbar, Footer, CustomFilter, SearchBar, SearchManufacturer, CarCard, CarDetails, ShowMore };
